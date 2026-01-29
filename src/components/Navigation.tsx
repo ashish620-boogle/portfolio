@@ -71,9 +71,6 @@ export default function Navigation() {
               </a>
             </li>
           ))}
-          <li className="pt-3">
-            <ThemeToggle />
-          </li>
         </ul>
       </div>
     </header>
