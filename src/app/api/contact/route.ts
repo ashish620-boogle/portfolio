@@ -1,4 +1,4 @@
-import { sql } from "@vercel/postgres";
+import { createClient } from "@vercel/postgres";
 
 type Payload = {
   name?: string;
@@ -29,20 +29,35 @@ export async function POST(request: Request) {
       );
     }
 
-    await sql`
-      CREATE TABLE IF NOT EXISTS contact_messages (
-        id SERIAL PRIMARY KEY,
-        name TEXT NOT NULL,
-        email TEXT NOT NULL,
-        message TEXT NOT NULL,
-        created_at TIMESTAMP DEFAULT NOW()
+    const connectionString =
+      process.env.POSTGRES_URL || process.env.DATABASE_URL;
+    if (!connectionString) {
+      return Response.json(
+        { error: "Database connection is not configured." },
+        { status: 500 }
       );
-    `;
+    }
 
-    await sql`
-      INSERT INTO contact_messages (name, email, message)
-      VALUES (${name}, ${email}, ${message});
-    `;
+    const client = createClient({ connectionString });
+    await client.connect();
+    try {
+      await client.sql`
+        CREATE TABLE IF NOT EXISTS contact_messages (
+          id SERIAL PRIMARY KEY,
+          name TEXT NOT NULL,
+          email TEXT NOT NULL,
+          message TEXT NOT NULL,
+          created_at TIMESTAMP DEFAULT NOW()
+        );
+      `;
+
+      await client.sql`
+        INSERT INTO contact_messages (name, email, message)
+        VALUES (${name}, ${email}, ${message});
+      `;
+    } finally {
+      await client.end();
+    }
 
     return Response.json({ ok: true });
   } catch (error) {
