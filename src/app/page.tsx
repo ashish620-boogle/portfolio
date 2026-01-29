@@ -15,6 +15,13 @@ import {
 } from "@/lib/constants";
 
 export default function Home() {
+  const stats = [
+    { label: "Years of Study", value: "6+" },
+    { label: "Publications", value: "4" },
+    { label: "Projects Shipped", value: "12+" },
+    { label: "CGPA (M.Tech)", value: "8.74" },
+  ];
+
   return (
     <div id="top">
       <a href="#main" className="skip-link">
@@ -23,14 +30,16 @@ export default function Home() {
       <Navigation />
 
       <main id="main">
-        <section className="pt-16 md:pt-24 pb-16">
+        <section className="pt-16 md:pt-24 pb-12">
           <div className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8">
-            <div className="grid gap-10 md:grid-cols-[1.2fr_0.8fr] items-center">
+            <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] items-center">
               <div className="reveal">
-                <p className="text-xs uppercase tracking-[0.4em] text-muted">
-                  Portfolio
-                </p>
-                <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-ink mt-4">
+                <div className="flex flex-wrap gap-2">
+                  <span className="chip">GenAI</span>
+                  <span className="chip">AR/VR</span>
+                  <span className="chip">XR Systems</span>
+                </div>
+                <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.03] tracking-tight text-ink mt-6">
                   {hero.name}
                 </h1>
                 <p className="font-body text-lg md:text-xl text-muted mt-4">
@@ -40,51 +49,58 @@ export default function Home() {
                   {hero.intro}
                 </p>
                 <div className="flex flex-wrap gap-3 mt-8">
-                  {socialLinks.map((link, index) => (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={index === 0 ? "btn-primary" : "btn-ghost"}
-                      aria-label={`Open ${link.label}`}
-                    >
-                      {link.label}
-                    </a>
+                  <a href="#projects" className="btn-primary">
+                    View Projects
+                  </a>
+                  <a href="#more" className="btn-ghost">
+                    More Details
+                  </a>
+                </div>
+              </div>
+              <div className="space-y-6">
+                <Card className="bg-mist reveal">
+                  <p className="text-xs uppercase tracking-[0.3em] text-muted">
+                    Now
+                  </p>
+                  <h2 className="font-display text-2xl md:text-3xl mt-4">
+                    Building real-time XR systems and grounded AI pipelines.
+                  </h2>
+                  <ul className="mt-5 space-y-3 text-sm text-muted">
+                    <li>Current: DRDO - Multi-user wargaming simulation</li>
+                    <li>Research: GenAI, NLP, IoT security, AR/VR</li>
+                    <li>Stack: Python, C#, Unity, TensorFlow, LangChain</li>
+                  </ul>
+                </Card>
+                <div className="grid grid-cols-2 gap-4">
+                  {stats.map((stat) => (
+                    <Card key={stat.label} className="glass float">
+                      <p className="text-xs uppercase tracking-[0.25em] text-muted">
+                        {stat.label}
+                      </p>
+                      <p className="font-display text-2xl mt-4">
+                        {stat.value}
+                      </p>
+                    </Card>
                   ))}
                 </div>
               </div>
-              <Card className="bg-mist reveal">
-                <p className="text-xs uppercase tracking-[0.3em] text-muted">
-                  Focus Areas
-                </p>
-                <h2 className="font-display text-2xl md:text-3xl mt-4">
-                  Building real-time XR systems and grounded AI pipelines.
-                </h2>
-                <ul className="mt-5 space-y-3 text-sm text-muted">
-                  <li>Current: DRDO - Real-time multi-user simulation</li>
-                  <li>Research: GenAI, NLP, IoT security, AR/VR</li>
-                  <li>Stack: Python, C#, Unity, TensorFlow, LangChain</li>
-                </ul>
-              </Card>
             </div>
+            <div className="section-divider mt-16" />
           </div>
         </section>
 
-        <section id="about" className="py-16 md:py-20">
+        <section id="about" className="py-12 md:py-16">
           <div className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8">
-            <SectionHeading
-              title="About"
-              subtitle="Focused on real-time XR systems and production-ready AI pipelines."
-            />
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] items-start">
+              <SectionHeading
+                title="About"
+                subtitle="Focused on real-time XR systems and production-ready AI pipelines."
+              />
               <Card>
                 <p className="font-body text-base md:text-lg leading-relaxed text-ink/80">
                   {about.summary}
                 </p>
-              </Card>
-              <Card>
-                <p className="font-body text-base md:text-lg leading-relaxed text-ink/80">
+                <p className="font-body text-base md:text-lg leading-relaxed text-ink/80 mt-6">
                   {about.educationHighlight}
                 </p>
                 <div className="mt-6 flex flex-wrap gap-2">
@@ -92,7 +108,7 @@ export default function Home() {
                     (tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 bg-ink text-mist text-xs font-semibold uppercase tracking-[0.2em] rounded-full"
+                        className="px-3 py-1 bg-canvas text-ink text-xs font-semibold uppercase tracking-[0.2em] rounded-full border border-line"
                       >
                         {tag}
                       </span>
@@ -104,11 +120,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="py-16 md:py-20">
+        <section id="projects" className="py-12 md:py-16">
           <div className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8">
-            <SectionHeading title="Projects" />
+            <SectionHeading title="Selected Projects" />
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {projects.map((project) => (
+              {projects.slice(0, 3).map((project) => (
                 <Card key={project.title}>
                   <div className="flex flex-wrap items-center justify-between gap-4">
                     <h3 className="font-display text-xl md:text-2xl">
@@ -121,13 +137,8 @@ export default function Home() {
                   <p className="font-body text-sm md:text-base mt-4 leading-relaxed text-ink/80">
                     {project.summary}
                   </p>
-                  <ul className="mt-4 space-y-2 font-body text-sm md:text-base leading-relaxed text-ink/80">
-                    {project.bullets.map((line) => (
-                      <li key={line}>- {line}</li>
-                    ))}
-                  </ul>
                   <div className="flex flex-wrap gap-2 mt-6">
-                    {project.tech.map((tech) => (
+                    {project.tech.slice(0, 4).map((tech) => (
                       <span
                         key={tech}
                         className="px-3 py-1 bg-canvas text-ink text-xs font-semibold uppercase tracking-[0.2em] rounded-full border border-line"
@@ -158,7 +169,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="more" className="py-16 md:py-20">
+        <section id="more" className="py-12 md:py-16">
           <div className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8">
             <SectionHeading
               title="More"
