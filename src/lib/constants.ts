@@ -105,7 +105,12 @@ export const projects = [
       "Built temporal feature pipelines for IoT signals and trained detection models for fault classification.",
       "Designed evaluation around anomaly detection performance and sensor-level interpretability.",
     ],
-    links: [],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/ashish620-boogle/Sensors-Anomaly-Detection",
+      },
+    ],
   },
   {
     title: "Market Pulse: Live Crypto Forecasting Dashboard",
@@ -139,7 +144,12 @@ export const projects = [
       "Integrated hardware I/O with Unity networking to align haptic cues with virtual events.",
       "Focused on low-latency messaging and stable session management for multi-device sync.",
     ],
-    links: [],
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/ashish620-boogle/Multimodality-in-VR",
+      },
+    ],
   },
 ];
 
