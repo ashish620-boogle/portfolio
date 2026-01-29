@@ -45,7 +45,10 @@ export async function POST(request: Request) {
     `;
 
     return Response.json({ ok: true });
-  } catch {
-    return Response.json({ error: "Something went wrong." }, { status: 500 });
+  } catch (error) {
+    console.error("Contact form error:", error);
+    const message =
+      error instanceof Error ? error.message : "Something went wrong.";
+    return Response.json({ error: message }, { status: 500 });
   }
 }
