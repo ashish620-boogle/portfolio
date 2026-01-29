@@ -169,180 +169,66 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="more" className="py-12 md:py-16">
+        <section id="experience" className="py-12 md:py-16">
           <div className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8">
-            <SectionHeading
-              title="More"
-              subtitle="Expanded details: experience, publications, skills, education, achievements, and contact."
-            />
-            <details className="group border border-line rounded-3xl bg-mist/70 p-6 md:p-8">
-              <summary className="cursor-pointer list-none font-body text-sm uppercase tracking-[0.25em] text-muted flex items-center justify-between">
-                <span>Open detailed sections</span>
-                <span className="text-ink group-open:rotate-180 transition-transform">
-                  ▾
-                </span>
-              </summary>
-              <div className="mt-8 space-y-16">
-                <section id="experience">
-                  <SectionHeading title="Experience" />
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {experience.map((item) => (
-                      <Card key={item.company}>
-                        <div className="flex flex-wrap items-center justify-between gap-4">
-                          <h3 className="font-display text-xl md:text-2xl">
-                            {item.role}
-                          </h3>
-                          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
-                            {item.dates}
-                          </span>
-                        </div>
-                        <p className="font-body font-semibold mt-2">
-                          {item.company}
-                        </p>
-                        <p className="text-sm font-body text-muted mt-1">
-                          {item.location}
-                        </p>
-                        <ul className="mt-4 space-y-2 font-body text-sm md:text-base leading-relaxed text-ink/80">
-                          {item.highlights.map((line) => (
-                            <li key={line}>- {line}</li>
-                          ))}
-                        </ul>
-                        <div className="flex flex-wrap gap-2 mt-6">
-                          {item.tech.map((tech) => (
-                            <span
-                              key={tech}
-                              className="px-3 py-1 bg-canvas text-ink text-xs font-semibold uppercase tracking-[0.2em] rounded-full border border-line"
-                            >
-                              {tech}
-                            </span>
-                          ))}
-                        </div>
-                      </Card>
-                    ))}
+            <SectionHeading title="Experience" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {experience.map((item) => (
+                <Card key={item.company}>
+                  <div className="flex flex-wrap items-center justify-between gap-4">
+                    <h3 className="font-display text-xl md:text-2xl">
+                      {item.role}
+                    </h3>
+                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted">
+                      {item.dates}
+                    </span>
                   </div>
-                </section>
-
-                <section id="publications">
-                  <SectionHeading title="Publications" />
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {publications.map((paper) => (
-                      <Card key={paper.title}>
-                        <div className="flex flex-wrap items-start justify-between gap-4">
-                          <h3 className="font-display text-xl md:text-2xl">
-                            {paper.title}
-                          </h3>
-                          <span className="text-xs font-semibold uppercase tracking-[0.2em] bg-canvas text-ink px-3 py-1 rounded-full border border-line">
-                            {paper.status}
-                          </span>
-                        </div>
-                        <p className="font-body font-semibold mt-2">
-                          {paper.venue}
-                        </p>
-                        <p className="font-body text-sm md:text-base mt-4 leading-relaxed text-ink/80">
-                          {paper.summary}
-                        </p>
-                        {paper.links.length ? (
-                          <div className="flex flex-wrap gap-3 mt-6">
-                            {paper.links.map((link) => (
-                              <a
-                                key={link.label}
-                                href={link.href}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn-ghost"
-                              >
-                                {link.label}
-                              </a>
-                            ))}
-                          </div>
-                        ) : null}
-                      </Card>
+                  <p className="font-body font-semibold mt-2">{item.company}</p>
+                  <p className="text-sm font-body text-muted mt-1">
+                    {item.location}
+                  </p>
+                  <ul className="mt-4 space-y-2 font-body text-sm md:text-base leading-relaxed text-ink/80">
+                    {item.highlights.map((line) => (
+                      <li key={line}>- {line}</li>
                     ))}
-                  </div>
-                </section>
-
-                <section id="skills">
-                  <SectionHeading title="Skills" />
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {skills.map((group) => (
-                      <Card key={group.title}>
-                        <h3 className="font-display text-xl md:text-2xl">
-                          {group.title}
-                        </h3>
-                        <ul className="mt-4 space-y-2 font-body text-sm md:text-base leading-relaxed text-ink/80">
-                          {group.items.map((item) => (
-                            <li key={item}>- {item}</li>
-                          ))}
-                        </ul>
-                      </Card>
-                    ))}
-                  </div>
-                </section>
-
-                <section id="education">
-                  <SectionHeading title="Education" />
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {education.map((item) => (
-                      <Card key={item.degree}>
-                        <h3 className="font-display text-xl md:text-2xl">
-                          {item.degree}
-                        </h3>
-                        <p className="font-body font-semibold mt-2">
-                          {item.institute}
-                        </p>
-                        <p className="font-body text-muted mt-2">
-                          {item.score}
-                        </p>
-                        <p className="font-body text-sm mt-2 uppercase tracking-[0.2em] text-muted">
-                          {item.year}
-                        </p>
-                      </Card>
-                    ))}
-                  </div>
-                </section>
-
-                <section id="achievements">
-                  <SectionHeading title="Achievements" />
-                  <Card className="max-w-4xl">
-                    <ul className="space-y-3 font-body text-sm md:text-base leading-relaxed text-ink/80">
-                      {achievements.map((item) => (
-                        <li key={item}>- {item}</li>
-                      ))}
-                    </ul>
-                  </Card>
-                </section>
-
-                <section id="contact">
-                  <SectionHeading title="Contact" />
-                  <Card className="max-w-3xl">
-                    <p className="font-body text-base md:text-lg">
-                      Email:{" "}
-                      <a
-                        href={`mailto:${contact.email}`}
-                        className="font-semibold hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-canvas"
+                  </ul>
+                  <div className="flex flex-wrap gap-2 mt-6">
+                    {item.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-canvas text-ink text-xs font-semibold uppercase tracking-[0.2em] rounded-full border border-line"
                       >
-                        {contact.email}
-                      </a>{" "}
-                      |{" "}
-                      <a
-                        href={`mailto:${contact.emailAlt}`}
-                        className="font-semibold hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-canvas"
-                      >
-                        {contact.emailAlt}
-                      </a>
-                    </p>
-                    <p className="font-body text-base md:text-lg mt-2">
-                      Phone:{" "}
-                      <a
-                        href={`tel:${contact.phone}`}
-                        className="font-semibold hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-canvas"
-                      >
-                        {contact.phone}
-                      </a>
-                    </p>
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                    <div className="flex flex-wrap gap-4 mt-6">
-                      {socialLinks.map((link) => (
+        <section id="publications" className="py-12 md:py-16">
+          <div className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8">
+            <SectionHeading title="Publications" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {publications.map((paper) => (
+                <Card key={paper.title}>
+                  <div className="flex flex-wrap items-start justify-between gap-4">
+                    <h3 className="font-display text-xl md:text-2xl">
+                      {paper.title}
+                    </h3>
+                    <span className="text-xs font-semibold uppercase tracking-[0.2em] bg-canvas text-ink px-3 py-1 rounded-full border border-line">
+                      {paper.status}
+                    </span>
+                  </div>
+                  <p className="font-body font-semibold mt-2">{paper.venue}</p>
+                  <p className="font-body text-sm md:text-base mt-4 leading-relaxed text-ink/80">
+                    {paper.summary}
+                  </p>
+                  {paper.links.length ? (
+                    <div className="flex flex-wrap gap-3 mt-6">
+                      {paper.links.map((link) => (
                         <a
                           key={link.label}
                           href={link.href}
@@ -354,10 +240,112 @@ export default function Home() {
                         </a>
                       ))}
                     </div>
-                  </Card>
-                </section>
+                  ) : null}
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="skills" className="py-12 md:py-16">
+          <div className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8">
+            <SectionHeading title="Skills" />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {skills.map((group) => (
+                <Card key={group.title}>
+                  <h3 className="font-display text-xl md:text-2xl">
+                    {group.title}
+                  </h3>
+                  <ul className="mt-4 space-y-2 font-body text-sm md:text-base leading-relaxed text-ink/80">
+                    {group.items.map((item) => (
+                      <li key={item}>- {item}</li>
+                    ))}
+                  </ul>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="education" className="py-12 md:py-16">
+          <div className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8">
+            <SectionHeading title="Education" />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {education.map((item) => (
+                <Card key={item.degree}>
+                  <h3 className="font-display text-xl md:text-2xl">
+                    {item.degree}
+                  </h3>
+                  <p className="font-body font-semibold mt-2">
+                    {item.institute}
+                  </p>
+                  <p className="font-body text-muted mt-2">{item.score}</p>
+                  <p className="font-body text-sm mt-2 uppercase tracking-[0.2em] text-muted">
+                    {item.year}
+                  </p>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="achievements" className="py-12 md:py-16">
+          <div className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8">
+            <SectionHeading title="Achievements" />
+            <Card className="max-w-4xl">
+              <ul className="space-y-3 font-body text-sm md:text-base leading-relaxed text-ink/80">
+                {achievements.map((item) => (
+                  <li key={item}>- {item}</li>
+                ))}
+              </ul>
+            </Card>
+          </div>
+        </section>
+
+        <section id="contact" className="py-12 md:py-16">
+          <div className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8">
+            <SectionHeading title="Contact" />
+            <Card className="max-w-3xl">
+              <p className="font-body text-base md:text-lg">
+                Email:{" "}
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="font-semibold hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-canvas"
+                >
+                  {contact.email}
+                </a>{" "}
+                |{" "}
+                <a
+                  href={`mailto:${contact.emailAlt}`}
+                  className="font-semibold hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-canvas"
+                >
+                  {contact.emailAlt}
+                </a>
+              </p>
+              <p className="font-body text-base md:text-lg mt-2">
+                Phone:{" "}
+                <a
+                  href={`tel:${contact.phone}`}
+                  className="font-semibold hover:text-accent focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-canvas"
+                >
+                  {contact.phone}
+                </a>
+              </p>
+
+              <div className="flex flex-wrap gap-4 mt-6">
+                {socialLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-ghost"
+                  >
+                    {link.label}
+                  </a>
+                ))}
               </div>
-            </details>
+            </Card>
           </div>
         </section>
       </main>
