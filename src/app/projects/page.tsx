@@ -8,6 +8,23 @@ export default function ProjectsPage() {
   return (
     <main className="py-16 md:py-24">
       <div className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8">
+        <div className="flex items-center gap-4 mb-10">
+          <a href="/" className="btn-ghost">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+            >
+              <path
+                d="M7.21875 12L7.78125 11.4375L4.375 8L7.78125 4.5625L7.21875 4L3.21875 8L7.21875 12Z"
+                fill="currentColor"
+              ></path>
+            </svg>
+            Back to Home
+          </a>
+        </div>
         <SectionHeading
           title="Projects"
           subtitle="A dedicated space for project highlights, screenshots, and links."
