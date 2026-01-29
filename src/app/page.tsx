@@ -3,14 +3,9 @@ import Navigation from "@/components/Navigation";
 import SectionHeading from "@/components/SectionHeading";
 import {
   about,
-  achievements,
   contact,
-  education,
-  experience,
   hero,
   projects,
-  publications,
-  skills,
   socialLinks,
 } from "@/lib/constants";
 
