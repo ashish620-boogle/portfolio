@@ -6,6 +6,7 @@ const navLinks = [
   { label: "Home", href: "#top" },
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
+  { label: "Projects Page", href: "/projects" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -20,9 +21,14 @@ export default function Navigation() {
       >
         <a
           href="#top"
-          className="font-display text-xl text-ink tracking-tight"
+          className="flex items-center gap-3 font-display text-xl text-ink tracking-tight"
           aria-label="Ashish Kumar home"
         >
+          <img
+            src="/logo.svg"
+            alt="Ashish Kumar logo"
+            className="h-9 w-9"
+          />
           Ashish Kumar
         </a>
 

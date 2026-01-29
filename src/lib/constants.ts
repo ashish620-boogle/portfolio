@@ -1,8 +1,8 @@
 export const hero = {
   name: "Ashish Kumar",
-  title: "M.Tech (AR&VR) | Data Science & GenAI Engineer",
+  title: "GenAI Developer",
   intro:
-    "Data Science and GenAI-focused engineer with hands-on experience across NLP, time-series/anomaly detection, and end-to-end Retrieval Augmented Generation (RAG) systems. Strong Python/ML foundations with publications in applied ML/security and NLP. Currently pursuing M.Tech in AR&VR and building real-time multi-user systems at DRDO.",
+    "I build intelligent systems that connect data, models, and human experience. My focus is on practical GenAI products, ML pipelines, and real-time interfaces that are reliable, scalable, and easy to use.",
 };
 
 export const socialLinks = [
@@ -22,9 +22,9 @@ export const socialLinks = [
 
 export const about = {
   summary:
-    "I build reliable, real-time systems at the intersection of AR/VR and AI. My work spans multi-user networking in Unity, NLP and document intelligence, and time-series/anomaly detection systems. I aim for roles in Data Science, GenAI, Technology Consulting, and Software Engineering.",
+    "I am a GenAI developer with a background in computer science and a passion for building real-world AI applications. I enjoy working on NLP, retrieval systems, and ML-driven experiences that solve practical problems.",
   educationHighlight:
-    "Academic journey: B.Tech in CSE from NIT Hamirpur (8.98 CGPA) to M.Tech in AR&VR at IIT Jodhpur (8.74 CGPA).",
+    "Education: B.Tech in Computer Science, followed by an M.Tech in AR/VR. Strong foundations in algorithms, data systems, and modern ML frameworks.",
 };
 
 export const experience = [
