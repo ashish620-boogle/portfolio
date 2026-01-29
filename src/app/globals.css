@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink: #000000;
+  --color-cream: #f4f0e8;
+  --color-electric: #0057ff;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-cream: var(--color-cream);
+  --color-electric: var(--color-electric);
+  --font-archivo: var(--font-archivo);
+  --font-lexend: var(--font-lexend);
+  --font-public: var(--font-public);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000000;
+  color: #f4f0e8;
+  font-family: var(--font-public), system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 1rem;
+  background: #0057ff;
+  color: #ffffff;
+  padding: 0.75rem 1.25rem;
+  border: 2px solid #000000;
+  box-shadow: 6px 6px 0px 0px #000000;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  left: 1rem;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  display: inline-block;
+  animation: marquee 18s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    animation: none;
+  }
+}
