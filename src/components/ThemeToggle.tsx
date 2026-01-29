@@ -13,6 +13,7 @@ export default function ThemeToggle() {
       window.matchMedia("(prefers-color-scheme: dark)").matches;
     const shouldUseDark = stored ? stored === "dark" : prefersDark;
     document.documentElement.classList.toggle("dark", shouldUseDark);
+    document.documentElement.classList.toggle("light", !shouldUseDark);
     setIsDark(shouldUseDark);
     setMounted(true);
   }, []);
@@ -20,6 +21,7 @@ export default function ThemeToggle() {
   const toggleTheme = () => {
     const next = !isDark;
     document.documentElement.classList.toggle("dark", next);
+    document.documentElement.classList.toggle("light", !next);
     window.localStorage.setItem("theme", next ? "dark" : "light");
     setIsDark(next);
   };
@@ -32,7 +34,7 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={toggleTheme}
-      className="inline-flex items-center justify-center rounded-full border border-line px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-ink hover:border-ink transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+      className="inline-flex items-center justify-center rounded-full border border-line px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-ink hover:border-accent transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] bg-mist/70"
       aria-label="Toggle dark mode"
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >

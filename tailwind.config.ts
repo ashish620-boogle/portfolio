@@ -12,6 +12,7 @@ const config: Config = {
         line: "var(--color-line)",
         accent: "var(--color-accent)",
         accentDark: "var(--color-accent-dark)",
+        glow: "var(--color-glow)",
       },
       fontFamily: {
         display: ["var(--font-display)"],
