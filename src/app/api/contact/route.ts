@@ -63,7 +63,9 @@ export async function POST(request: Request) {
   } catch (error) {
     console.error("Contact form error:", error);
     const message =
-      error instanceof Error ? error.message : String(error ?? "Unknown error");
+      error instanceof Error
+        ? `${error.name}: ${error.message}`
+        : JSON.stringify(error);
     return Response.json({ error: message }, { status: 500 });
   }
 }
