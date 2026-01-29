@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -40,18 +41,22 @@ export default function Navigation() {
           Menu
         </button>
 
-        <ul className="hidden md:flex gap-6 text-sm lg:text-base">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="font-body text-ink/70 uppercase tracking-[0.2em] text-xs hover:text-ink focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-canvas"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden md:flex items-center gap-6 text-sm lg:text-base">
+          <ul className="flex gap-6">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="font-body text-ink/70 uppercase tracking-[0.2em] text-xs hover:text-ink focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-canvas"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <ThemeToggle />
+        </div>
+        
       </nav>
 
       <div
@@ -72,6 +77,9 @@ export default function Navigation() {
               </a>
             </li>
           ))}
+          <li className="pt-3">
+            <ThemeToggle />
+          </li>
         </ul>
       </div>
     </header>

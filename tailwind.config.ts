@@ -5,13 +5,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#0f0f0f",
-        canvas: "#f7f5f2",
-        mist: "#ffffff",
-        muted: "#5c5c5c",
-        line: "#e6e2da",
-        accent: "#0f766e",
-        accentDark: "#0a5f58",
+        ink: "var(--color-ink)",
+        canvas: "var(--color-canvas)",
+        mist: "var(--color-mist)",
+        muted: "var(--color-muted)",
+        line: "var(--color-line)",
+        accent: "var(--color-accent)",
+        accentDark: "var(--color-accent-dark)",
       },
       fontFamily: {
         display: ["var(--font-display)"],

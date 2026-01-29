@@ -7,6 +7,17 @@
   --color-muted: #5c5c5c;
   --color-line: #e6e2da;
   --color-accent: #0f766e;
+  --color-accent-dark: #0a5f58;
+}
+
+.dark {
+  --color-ink: #f3f2ef;
+  --color-canvas: #0c0d0f;
+  --color-mist: #121418;
+  --color-muted: #b7b4ae;
+  --color-line: #24272c;
+  --color-accent: #2dd4bf;
+  --color-accent-dark: #14b8a6;
 }
 
 @theme inline {
@@ -31,8 +42,8 @@ html {
 }
 
 body {
-  background-color: #f7f5f2;
-  color: #0f0f0f;
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
   font-family: var(--font-body), system-ui, sans-serif;
   min-height: 100vh;
   background-image: radial-gradient(
@@ -43,6 +54,19 @@ body {
     radial-gradient(
       circle at 80% 10%,
       rgba(15, 118, 110, 0.06),
+      transparent 40%
+    );
+}
+
+.dark body {
+  background-image: radial-gradient(
+      circle at 20% 20%,
+      rgba(45, 212, 191, 0.08),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(45, 212, 191, 0.06),
       transparent 40%
     );
 }
