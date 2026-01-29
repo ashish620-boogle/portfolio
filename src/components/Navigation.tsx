@@ -17,22 +17,22 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-ink border-b-2 border-cream">
+    <header className="sticky top-0 z-50 bg-canvas/90 backdrop-blur border-b border-line">
       <nav
-        className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12 py-4 flex items-center justify-between"
+        className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8 py-4 flex items-center justify-between"
         aria-label="Main navigation"
       >
         <a
           href="#top"
-          className="font-archivo text-2xl text-cream tracking-wide"
+          className="font-display text-xl text-ink tracking-tight"
           aria-label="Ashish Kumar home"
         >
-          AK
+          Ashish Kumar
         </a>
 
         <button
           type="button"
-          className="md:hidden border-2 border-cream text-cream px-3 py-2 font-public uppercase tracking-[0.2em] text-xs focus:outline-none focus:ring-2 focus:ring-electric focus:ring-offset-2 focus:ring-offset-ink"
+          className="md:hidden border border-line text-ink px-3 py-2 font-body uppercase tracking-[0.2em] text-[0.7rem] rounded-full focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-canvas"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((prev) => !prev)}
@@ -45,7 +45,7 @@ export default function Navigation() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="font-public text-cream uppercase tracking-widest hover:text-electric focus:outline-none focus:ring-2 focus:ring-electric focus:ring-offset-2 focus:ring-offset-ink"
+                className="font-body text-ink/70 uppercase tracking-[0.2em] text-xs hover:text-ink focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-canvas"
               >
                 {link.label}
               </a>
@@ -56,7 +56,7 @@ export default function Navigation() {
 
       <div
         id="mobile-nav"
-        className={`md:hidden border-t-2 border-cream bg-ink ${
+        className={`md:hidden border-t border-line bg-canvas ${
           open ? "block" : "hidden"
         }`}
       >
@@ -65,7 +65,7 @@ export default function Navigation() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="block font-public text-cream uppercase tracking-[0.2em] text-xs focus:outline-none focus:ring-2 focus:ring-electric focus:ring-offset-2 focus:ring-offset-ink"
+                className="block font-body text-ink uppercase tracking-[0.2em] text-xs focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-canvas"
                 onClick={() => setOpen(false)}
               >
                 {link.label}

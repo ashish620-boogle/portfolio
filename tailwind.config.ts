@@ -5,18 +5,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#000000",
-        cream: "#F4F0E8",
-        electric: "#0057FF",
+        ink: "#0f0f0f",
+        canvas: "#f7f5f2",
+        mist: "#ffffff",
+        muted: "#5c5c5c",
+        line: "#e6e2da",
+        accent: "#0f766e",
+        accentDark: "#0a5f58",
       },
       fontFamily: {
-        archivo: ["var(--font-archivo)"],
-        lexend: ["var(--font-lexend)"],
-        public: ["var(--font-public)"],
+        display: ["var(--font-display)"],
+        body: ["var(--font-body)"],
       },
       boxShadow: {
-        brutal: "8px 8px 0px 0px #000000",
-        brutalHover: "12px 12px 0px 0px #000000",
+        soft: "0 20px 60px -40px rgba(15, 15, 15, 0.6)",
+        lift: "0 24px 70px -40px rgba(15, 15, 15, 0.7)",
       },
     },
   },

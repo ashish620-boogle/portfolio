@@ -1,18 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --color-ink: #000000;
-  --color-cream: #f4f0e8;
-  --color-electric: #0057ff;
+  --color-ink: #0f0f0f;
+  --color-canvas: #f7f5f2;
+  --color-mist: #ffffff;
+  --color-muted: #5c5c5c;
+  --color-line: #e6e2da;
+  --color-accent: #0f766e;
 }
 
 @theme inline {
   --color-ink: var(--color-ink);
-  --color-cream: var(--color-cream);
-  --color-electric: var(--color-electric);
-  --font-archivo: var(--font-archivo);
-  --font-lexend: var(--font-lexend);
-  --font-public: var(--font-public);
+  --color-canvas: var(--color-canvas);
+  --color-mist: var(--color-mist);
+  --color-muted: var(--color-muted);
+  --color-line: var(--color-line);
+  --color-accent: var(--color-accent);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
 }
 
 *,
@@ -26,10 +31,20 @@ html {
 }
 
 body {
-  background-color: #000000;
-  color: #f4f0e8;
-  font-family: var(--font-public), system-ui, sans-serif;
+  background-color: #f7f5f2;
+  color: #0f0f0f;
+  font-family: var(--font-body), system-ui, sans-serif;
   min-height: 100vh;
+  background-image: radial-gradient(
+      circle at 20% 20%,
+      rgba(15, 118, 110, 0.08),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(15, 118, 110, 0.06),
+      transparent 40%
+    );
 }
 
 a {
@@ -46,37 +61,15 @@ img {
   position: absolute;
   left: -999px;
   top: 1rem;
-  background: #0057ff;
+  background: #0f766e;
   color: #ffffff;
-  padding: 0.75rem 1.25rem;
-  border: 2px solid #000000;
-  box-shadow: 6px 6px 0px 0px #000000;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
   z-index: 100;
 }
 
 .skip-link:focus {
   left: 1rem;
-}
-
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.marquee {
-  display: inline-block;
-  animation: marquee 18s linear infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee {
-    animation: none;
-  }
 }

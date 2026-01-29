@@ -6,11 +6,14 @@ type SectionHeadingProps = {
 export default function SectionHeading({ title, subtitle }: SectionHeadingProps) {
   return (
     <div className="mb-10">
-      <h2 className="font-archivo text-4xl md:text-5xl lg:text-6xl text-cream">
+      <p className="text-xs uppercase tracking-[0.3em] text-muted mb-3">
+        Section
+      </p>
+      <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-ink">
         {title}
       </h2>
       {subtitle ? (
-        <p className="font-public text-cream/80 mt-3 max-w-2xl">{subtitle}</p>
+        <p className="font-body text-muted mt-3 max-w-2xl">{subtitle}</p>
       ) : null}
     </div>
   );

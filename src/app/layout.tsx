@@ -1,24 +1,15 @@
 import type { Metadata } from "next";
-import { Archivo_Black, Lexend_Mega, Public_Sans } from "next/font/google";
+import { Fraunces, Manrope } from "next/font/google";
 import "./globals.css";
 
-const archivo = Archivo_Black({
-  variable: "--font-archivo",
-  weight: "400",
+const display = Fraunces({
+  variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
 });
 
-const lexend = Lexend_Mega({
-  variable: "--font-lexend",
-  weight: "400",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const publicSans = Public_Sans({
-  variable: "--font-public",
-  weight: ["400", "700"],
+const body = Manrope({
+  variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
 });
@@ -48,9 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${archivo.variable} ${lexend.variable} ${publicSans.variable} antialiased`}
-      >
+      <body className={`${display.variable} ${body.variable} antialiased`}>
         {children}
       </body>
     </html>
