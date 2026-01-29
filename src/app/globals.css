@@ -1,23 +1,36 @@
 @import "tailwindcss";
 
 :root {
-  --color-ink: #0f0f0f;
-  --color-canvas: #f7f5f2;
-  --color-mist: #ffffff;
-  --color-muted: #5c5c5c;
-  --color-line: #e6e2da;
-  --color-accent: #0f766e;
-  --color-accent-dark: #0a5f58;
+  --color-ink: #f5f3ff;
+  --color-canvas: #0a0a12;
+  --color-mist: #131320;
+  --color-muted: #a29db8;
+  --color-line: #232337;
+  --color-accent: #a855f7;
+  --color-accent-dark: #7c3aed;
+  --color-glow: rgba(168, 85, 247, 0.35);
 }
 
 .dark {
-  --color-ink: #f3f2ef;
-  --color-canvas: #0c0d0f;
-  --color-mist: #121418;
-  --color-muted: #b7b4ae;
-  --color-line: #24272c;
-  --color-accent: #2dd4bf;
-  --color-accent-dark: #14b8a6;
+  --color-ink: #f5f3ff;
+  --color-canvas: #0a0a12;
+  --color-mist: #131320;
+  --color-muted: #a29db8;
+  --color-line: #232337;
+  --color-accent: #a855f7;
+  --color-accent-dark: #7c3aed;
+  --color-glow: rgba(168, 85, 247, 0.35);
+}
+
+.light {
+  --color-ink: #0f0f18;
+  --color-canvas: #f7f6fb;
+  --color-mist: #ffffff;
+  --color-muted: #5b5a6a;
+  --color-line: #e6e2f0;
+  --color-accent: #7c3aed;
+  --color-accent-dark: #5b21b6;
+  --color-glow: rgba(124, 58, 237, 0.25);
 }
 
 @theme inline {
@@ -47,26 +60,31 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
   min-height: 100vh;
   background-image: radial-gradient(
-      circle at 20% 20%,
-      rgba(15, 118, 110, 0.08),
+      circle at 15% 10%,
+      rgba(124, 58, 237, 0.22),
       transparent 45%
     ),
     radial-gradient(
       circle at 80% 10%,
-      rgba(15, 118, 110, 0.06),
-      transparent 40%
+      rgba(76, 29, 149, 0.35),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 30% 80%,
+      rgba(168, 85, 247, 0.18),
+      transparent 50%
     );
 }
 
-.dark body {
+.light body {
   background-image: radial-gradient(
       circle at 20% 20%,
-      rgba(45, 212, 191, 0.08),
+      rgba(124, 58, 237, 0.14),
       transparent 45%
     ),
     radial-gradient(
       circle at 80% 10%,
-      rgba(45, 212, 191, 0.06),
+      rgba(99, 102, 241, 0.1),
       transparent 40%
     );
 }
@@ -87,24 +105,43 @@ img {
   justify-content: center;
   padding: 0.75rem 1.4rem;
   border-radius: 999px;
-  background: var(--color-accent);
+  background: linear-gradient(120deg, var(--color-accent), #6d28d9);
   color: #ffffff;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.75rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease,
-    background-color 0.2s ease;
-  box-shadow: 0 10px 30px -20px rgba(15, 15, 15, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 14px 40px -26px rgba(168, 85, 247, 0.8);
+  position: relative;
+  overflow: hidden;
 }
 
 .btn-primary:hover {
-  background: var(--color-accent-dark);
   transform: translateY(-1px);
 }
 
 .btn-primary:active {
   transform: translateY(1px) scale(0.98);
+}
+
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  inset: -120% auto -120% -60%;
+  width: 50%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+  transform: translateX(-120%);
+  transition: transform 0.6s ease;
+}
+
+.btn-primary:hover::after {
+  transform: translateX(260%);
 }
 
 .btn-ghost {
@@ -124,8 +161,8 @@ img {
 }
 
 .btn-ghost:hover {
-  border-color: var(--color-ink);
-  background: rgba(15, 15, 15, 0.04);
+  border-color: var(--color-accent);
+  background: rgba(168, 85, 247, 0.12);
   transform: translateY(-1px);
 }
 
@@ -180,6 +217,32 @@ img {
   height: 1px;
   width: 100%;
   background: var(--color-line);
+}
+
+.orb {
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(168, 85, 247, 0.55),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(79, 70, 229, 0.45),
+      transparent 50%
+    );
+  filter: blur(0px);
+}
+
+.glow-ring {
+  position: absolute;
+  inset: -18px;
+  border-radius: 28px;
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  box-shadow: 0 0 60px -12px rgba(168, 85, 247, 0.6);
+  pointer-events: none;
 }
 
 .float {

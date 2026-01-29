@@ -52,12 +52,32 @@ export default function Home() {
                   <a href="#projects" className="btn-primary">
                     View Projects
                   </a>
-                  <a href="#more" className="btn-ghost">
-                    More Details
+                  <a href="#experience" className="btn-ghost">
+                    Experience
                   </a>
                 </div>
               </div>
               <div className="space-y-6">
+                <div className="relative h-64 md:h-72 rounded-3xl border border-line overflow-hidden shadow-soft">
+                  <div className="orb" />
+                  <div className="glow-ring" />
+                  <div className="relative z-10 h-full w-full flex items-end justify-between p-6">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.3em] text-muted">
+                        Signature
+                      </p>
+                      <p className="font-display text-2xl mt-3">
+                        XR + GenAI
+                      </p>
+                      <p className="text-sm text-muted mt-2">
+                        Real-time systems and applied ML research.
+                      </p>
+                    </div>
+                    <div className="h-20 w-20 rounded-2xl bg-mist/70 border border-line flex items-center justify-center text-xl font-display">
+                      AK
+                    </div>
+                  </div>
+                </div>
                 <Card className="bg-mist reveal">
                   <p className="text-xs uppercase tracking-[0.3em] text-muted">
                     Now
@@ -86,6 +106,65 @@ export default function Home() {
               </div>
             </div>
             <div className="section-divider mt-16" />
+          </div>
+        </section>
+
+        <section id="services" className="py-12 md:py-16">
+          <div className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8">
+            <SectionHeading
+              title="Core Capabilities"
+              subtitle="High-impact areas where I deliver end-to-end solutions."
+            />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              <Card>
+                <div className="flex items-center justify-between">
+                  <h3 className="font-display text-xl md:text-2xl">
+                    RAG Systems & GenAI
+                  </h3>
+                  <span className="chip">01</span>
+                </div>
+                <p className="font-body text-sm md:text-base mt-4 leading-relaxed text-ink/80">
+                  Design and ship retrieval pipelines with robust embeddings,
+                  vector search, and grounded responses.
+                </p>
+              </Card>
+              <Card>
+                <div className="flex items-center justify-between">
+                  <h3 className="font-display text-xl md:text-2xl">
+                    XR Networking
+                  </h3>
+                  <span className="chip">02</span>
+                </div>
+                <p className="font-body text-sm md:text-base mt-4 leading-relaxed text-ink/80">
+                  Build multi-user simulations with reliable client-server
+                  state synchronization in Unity.
+                </p>
+              </Card>
+              <Card>
+                <div className="flex items-center justify-between">
+                  <h3 className="font-display text-xl md:text-2xl">
+                    Time-Series & Anomaly
+                  </h3>
+                  <span className="chip">03</span>
+                </div>
+                <p className="font-body text-sm md:text-base mt-4 leading-relaxed text-ink/80">
+                  LSTM-based feature extraction and diagnostics for IoT and
+                  digital twin telemetry.
+                </p>
+              </Card>
+              <Card>
+                <div className="flex items-center justify-between">
+                  <h3 className="font-display text-xl md:text-2xl">
+                    Document AI & NLP
+                  </h3>
+                  <span className="chip">04</span>
+                </div>
+                <p className="font-body text-sm md:text-base mt-4 leading-relaxed text-ink/80">
+                  Structured extraction and layout-aware pipelines for
+                  enterprise document intelligence.
+                </p>
+              </Card>
+            </div>
           </div>
         </section>
 

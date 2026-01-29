@@ -10,7 +10,7 @@ export default function SectionHeading({ title, subtitle }: SectionHeadingProps)
         Section
       </p>
       <h2 className="font-display text-3xl md:text-4xl lg:text-5xl text-ink">
-        {title}
+        <span className="text-accent">{title}</span>
       </h2>
       {subtitle ? (
         <p className="font-body text-muted mt-3 max-w-2xl">{subtitle}</p>

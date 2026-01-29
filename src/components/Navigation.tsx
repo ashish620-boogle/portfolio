@@ -5,6 +5,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Publications", href: "#publications" },
@@ -18,7 +19,7 @@ export default function Navigation() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-canvas/90 backdrop-blur border-b border-line">
+    <header className="sticky top-0 z-50 bg-canvas/70 backdrop-blur border-b border-line">
       <nav
         className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8 py-4 flex items-center justify-between"
         aria-label="Main navigation"
@@ -47,14 +48,14 @@ export default function Navigation() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="font-body text-ink/70 uppercase tracking-[0.2em] text-xs hover:text-ink focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-canvas"
-                >
-                  {link.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <ThemeToggle />
+                className="font-body text-ink/70 uppercase tracking-[0.2em] text-xs hover:text-ink focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-canvas"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <ThemeToggle />
         </div>
         
       </nav>
