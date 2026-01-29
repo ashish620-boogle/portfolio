@@ -16,7 +16,7 @@ export const socialLinks = [
   },
   {
     label: "Google Scholar",
-    href: "https://scholar.google.com/",
+    href: "https://scholar.google.com/citations?user=-gl_BFsAAAAJ&hl=en",
   },
 ];
 
@@ -171,11 +171,7 @@ export const publications = [
     links: [
       {
         label: "Springer",
-        href: "https://link.springer.com/article/10.1007/s42979-025-03656-6",
-      },
-      {
-        label: "DBLP",
-        href: "https://dblp.org/rec/journals/snc/AzizKSS25",
+        href: "https://link.springer.com/article/10.1007/s42979-025-04103-0",
       },
     ],
   },
@@ -185,7 +181,12 @@ export const publications = [
     venue: "Springer",
     summary:
       "Survey and systems overview of intrusion detection and prevention techniques for industrial IoT networks.",
-    links: [],
+    links: [
+      {
+        label: "Springer",
+        href: "https://link.springer.com/article/10.1007/s12046-024-02567-z",
+      },
+    ],
   },
 ];
 
