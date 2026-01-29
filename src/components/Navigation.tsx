@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 
 const navLinks = [
@@ -23,10 +24,11 @@ export default function Navigation() {
           className="flex items-center gap-3 font-display text-xl text-ink tracking-tight"
           aria-label="Ashish Kumar home"
         >
-          <img
+          <Image
             src="/logo.svg"
             alt="Ashish Kumar logo"
-            className="h-9 w-9"
+            width={36}
+            height={36}
           />
           Ashish Kumar
         </a>

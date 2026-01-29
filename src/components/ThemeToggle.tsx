@@ -3,20 +3,20 @@
 import { useEffect, useState } from "react";
 
 export default function ThemeToggle() {
-  const [mounted, setMounted] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window === "undefined") return false;
+    const stored = window.localStorage.getItem("theme");
+    if (stored) return stored === "dark";
+    return (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    );
+  });
 
   useEffect(() => {
-    const stored = window.localStorage.getItem("theme");
-    const prefersDark =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const shouldUseDark = stored ? stored === "dark" : prefersDark;
-    document.documentElement.classList.toggle("dark", shouldUseDark);
-    document.documentElement.classList.toggle("light", !shouldUseDark);
-    setIsDark(shouldUseDark);
-    setMounted(true);
-  }, []);
+    document.documentElement.classList.toggle("dark", isDark);
+    document.documentElement.classList.toggle("light", !isDark);
+  }, [isDark]);
 
   const toggleTheme = () => {
     const next = !isDark;
@@ -25,10 +25,6 @@ export default function ThemeToggle() {
     window.localStorage.setItem("theme", next ? "dark" : "light");
     setIsDark(next);
   };
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <button

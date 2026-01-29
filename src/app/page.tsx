@@ -1,16 +1,14 @@
+import Image from "next/image";
+import Link from "next/link";
 import Card from "@/components/Card";
+import ContactForm from "@/components/ContactForm";
 import Navigation from "@/components/Navigation";
 import SectionHeading from "@/components/SectionHeading";
-import ContactForm from "@/components/ContactForm";
-import {
-  about,
-  contact,
-  hero,
-  projects,
-  socialLinks,
-} from "@/lib/constants";
+import { about, hero, projects } from "@/lib/constants";
 
 export default function Home() {
+  const projectImages = ["/project-1.svg", "/project-2.svg", "/project-3.svg"];
+
   return (
     <div id="top">
       <a href="#main" className="skip-link">
@@ -21,37 +19,41 @@ export default function Home() {
       <main id="main">
         <section className="pt-16 md:pt-24 pb-16">
           <div className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8">
-                          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
-                          <div>
-                            <p className="text-xs uppercase tracking-[0.4em] text-muted">
-                              Portfolio
-                            </p>
-                            <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-ink mt-4">
-                              {hero.name}
-                            </h1>
-                            <p className="font-body text-lg md:text-xl text-muted mt-4">
-                              {hero.title}
-                            </p>
-                            <p className="font-body text-base md:text-lg text-ink/80 mt-6 leading-relaxed">
-                              {hero.intro}
-                            </p>
-                            <div className="flex flex-wrap gap-3 mt-8">
-                              <a href="#projects" className="btn-primary">
-                                View Projects
-                              </a>
-                              <a href="#contact" className="btn-ghost">
-                                Contact
-                              </a>
-                            </div>
-                          </div>
-                          <div className="relative h-72 md:h-96">
-                            <img
-                              src="/profile-placeholder.svg"
-                              alt="Profile placeholder"
-                              className="h-full w-full rounded-3xl border border-line object-cover"
-                            />
-                          </div>
-                        </div>          </div>
+            <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center">
+              <div>
+                <p className="text-xs uppercase tracking-[0.4em] text-muted">
+                  Portfolio
+                </p>
+                <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight text-ink mt-4">
+                  {hero.name}
+                </h1>
+                <p className="font-body text-lg md:text-xl text-muted mt-4">
+                  {hero.title}
+                </p>
+                <p className="font-body text-base md:text-lg text-ink/80 mt-6 leading-relaxed">
+                  {hero.intro}
+                </p>
+                <div className="flex flex-wrap gap-3 mt-8">
+                  <a href="#projects" className="btn-primary">
+                    View Projects
+                  </a>
+                  <a href="#contact" className="btn-ghost">
+                    Contact
+                  </a>
+                </div>
+              </div>
+              <div className="relative h-72 md:h-96">
+                <Image
+                  src="/profile-placeholder.svg"
+                  alt="Profile placeholder"
+                  fill
+                  className="rounded-3xl border border-line object-cover"
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
         </section>
 
         <section id="about" className="py-12 md:py-16">
@@ -75,7 +77,10 @@ export default function Home() {
           <div className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8">
             <div className="flex items-center justify-between">
               <SectionHeading title="Projects" />
-              <a href="/projects" className="btn-ghost hidden md:flex items-center gap-2">
+              <Link
+                href="/projects"
+                className="btn-ghost hidden md:flex items-center gap-2"
+              >
                 Browse all
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -89,16 +94,20 @@ export default function Home() {
                     fill="currentColor"
                   ></path>
                 </svg>
-              </a>
+              </Link>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {projects.slice(0, 3).map((project) => (
+              {projects.slice(0, 3).map((project, index) => (
                 <Card key={project.title} className="flex flex-col">
-                  <img
-                    src={project.image}
-                    alt={`${project.title} placeholder`}
-                    className="h-48 w-full rounded-2xl border border-line object-cover"
-                  />
+                  <div className="relative h-48 w-full">
+                    <Image
+                      src={projectImages[index % projectImages.length]}
+                      alt={`${project.title} placeholder`}
+                      fill
+                      className="rounded-2xl border border-line object-cover"
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                    />
+                  </div>
                   <div className="mt-5 flex-grow">
                     <h3 className="font-display text-xl md:text-2xl">
                       {project.title}

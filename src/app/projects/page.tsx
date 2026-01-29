@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import Card from "@/components/Card";
 import SectionHeading from "@/components/SectionHeading";
 import { projects } from "@/lib/constants";
@@ -9,7 +11,7 @@ export default function ProjectsPage() {
     <main className="py-16 md:py-24">
       <div className="max-w-[1100px] mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex items-center gap-4 mb-10">
-          <a href="/" className="btn-ghost">
+          <Link href="/" className="btn-ghost">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -23,7 +25,7 @@ export default function ProjectsPage() {
               ></path>
             </svg>
             Back to Home
-          </a>
+          </Link>
         </div>
         <SectionHeading
           title="Projects"
@@ -32,11 +34,15 @@ export default function ProjectsPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <Card key={project.title}>
-              <img
-                src={placeholders[index % placeholders.length]}
-                alt={`${project.title} placeholder`}
-                className="h-40 w-full rounded-2xl border border-line object-cover"
-              />
+              <div className="relative h-40 w-full">
+                <Image
+                  src={placeholders[index % placeholders.length]}
+                  alt={`${project.title} placeholder`}
+                  fill
+                  className="rounded-2xl border border-line object-cover"
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                />
+              </div>
               <div className="mt-5">
                 <h3 className="font-display text-xl md:text-2xl">
                   {project.title}
