@@ -69,6 +69,7 @@ export const projects = [
   {
     title: "Advanced Retrieval Augmented Generation (RAG) System",
     date: "Jan 2026",
+    image: "/project-1.svg",
     tech: [
       "LangChain",
       "Sentence Transformers",
@@ -98,6 +99,7 @@ export const projects = [
   {
     title: "Digital Twin Network - Fault Detection for IoT Sensors",
     date: "Jan 2024",
+    image: "/project-2.svg",
     tech: ["Python", "TensorFlow", "Time-Series", "Anomaly Detection", "IoT"],
     summary:
       "LSTM-based feature extraction with Random Forest classification to identify sensor faults in Digital Twin environments.",
@@ -115,6 +117,7 @@ export const projects = [
   {
     title: "Market Pulse: Live Crypto Forecasting Dashboard",
     date: "Feb 2022",
+    image: "/project-3.svg",
     tech: ["Python", "FastAPI", "WebSockets", "Gradient Boosting", "Plotly"],
     summary:
       "Live BTC forecasting system with real-time data ingestion, feature engineering, and trading-simulation logic.",
@@ -137,6 +140,7 @@ export const projects = [
   {
     title: "Multimodality in VR (Systems + Networking)",
     date: "Apr 2025",
+    image: "/project-1.svg",
     tech: ["C#", "TCP Networking", "Unity", "Haptics", "Spatial Audio"],
     summary:
       "TCP client-server communication between a haptic device and HMD for synchronized feedback and interactions.",

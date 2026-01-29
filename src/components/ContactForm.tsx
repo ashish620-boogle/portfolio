@@ -63,54 +63,50 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={onSubmit} className="space-y-5">
+    <form onSubmit={onSubmit} className="space-y-6">
       <div>
-        <label className="text-sm font-semibold text-ink">Name</label>
+        <label htmlFor="name" className="sr-only">Name</label>
         <input
+          id="name"
           type="text"
           value={name}
           onChange={(event) => setName(event.target.value)}
-          className="mt-2 w-full rounded-2xl border border-line bg-mist px-4 py-3 text-ink outline-none focus:ring-2 focus:ring-accent"
-          placeholder="Your name"
+          className="w-full rounded-lg border border-line bg-canvas px-4 py-3 text-ink outline-none focus:ring-2 focus:ring-accent"
+          placeholder="Name"
         />
-        {errors.name ? (
-          <p className="text-xs text-red-500 mt-2">{errors.name}</p>
-        ) : null}
+        {errors.name && <p className="text-xs text-red-500 mt-2">{errors.name}</p>}
       </div>
       <div>
-        <label className="text-sm font-semibold text-ink">Email</label>
+        <label htmlFor="email" className="sr-only">Email</label>
         <input
+          id="email"
           type="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          className="mt-2 w-full rounded-2xl border border-line bg-mist px-4 py-3 text-ink outline-none focus:ring-2 focus:ring-accent"
-          placeholder="you@email.com"
+          className="w-full rounded-lg border border-line bg-canvas px-4 py-3 text-ink outline-none focus:ring-2 focus:ring-accent"
+          placeholder="Email"
         />
-        {errors.email ? (
-          <p className="text-xs text-red-500 mt-2">{errors.email}</p>
-        ) : null}
+        {errors.email && <p className="text-xs text-red-500 mt-2">{errors.email}</p>}
       </div>
       <div>
-        <label className="text-sm font-semibold text-ink">Message</label>
+        <label htmlFor="message" className="sr-only">Message</label>
         <textarea
+          id="message"
           value={message}
           onChange={(event) => setMessage(event.target.value)}
-          className="mt-2 w-full rounded-2xl border border-line bg-mist px-4 py-3 text-ink outline-none focus:ring-2 focus:ring-accent min-h-[140px]"
-          placeholder="Tell me about your project..."
+          className="w-full rounded-lg border border-line bg-canvas px-4 py-3 text-ink outline-none focus:ring-2 focus:ring-accent min-h-[160px]"
+          placeholder="Message"
         />
-        {errors.message ? (
-          <p className="text-xs text-red-500 mt-2">{errors.message}</p>
-        ) : null}
+        {errors.message && <p className="text-xs text-red-500 mt-2">{errors.message}</p>}
       </div>
-      {errors.form ? (
-        <p className="text-xs text-red-500">{errors.form}</p>
-      ) : null}
-      {status === "success" ? (
+      {errors.form && <p className="text-xs text-red-500">{errors.form}</p>}
+      {status === "success" && (
         <p className="text-sm text-emerald-600">Thanks! Your message was sent.</p>
-      ) : null}
-      <button type="submit" className="btn-primary" disabled={status === "loading"}>
+      )}
+      <button type="submit" className="btn-primary w-full" disabled={status === "loading"}>
         {status === "loading" ? "Sending..." : "Send Message"}
       </button>
     </form>
   );
 }
+

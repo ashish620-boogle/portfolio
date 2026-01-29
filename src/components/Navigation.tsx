@@ -6,7 +6,6 @@ const navLinks = [
   { label: "Home", href: "#top" },
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
-  { label: "Projects Page", href: "/projects" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -34,7 +33,7 @@ export default function Navigation() {
 
         <button
           type="button"
-          className="md:hidden border border-line text-ink px-3 py-2 font-body uppercase tracking-[0.2em] text-[0.7rem] rounded-full focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-canvas"
+          className="md:hidden btn-ghost"
           aria-expanded={open}
           aria-controls="mobile-nav"
           onClick={() => setOpen((prev) => !prev)}

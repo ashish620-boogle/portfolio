@@ -1,17 +1,17 @@
 import type { Metadata } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { DM_Serif_Display, Inter } from "next/font/google";
 import "./globals.css";
 
-const display = Fraunces({
+const display = DM_Serif_Display({
   variable: "--font-display",
   subsets: ["latin"],
-  display: "swap",
+  weight: "400",
 });
 
-const body = Manrope({
+const body = Inter({
   variable: "--font-body",
   subsets: ["latin"],
-  display: "swap",
+  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
