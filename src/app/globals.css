@@ -1,36 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --color-ink: #f5f3ff;
-  --color-canvas: #0a0a12;
-  --color-mist: #131320;
-  --color-muted: #a29db8;
-  --color-line: #232337;
-  --color-accent: #a855f7;
-  --color-accent-dark: #7c3aed;
-  --color-glow: rgba(168, 85, 247, 0.35);
-}
-
-.dark {
-  --color-ink: #f5f3ff;
-  --color-canvas: #0a0a12;
-  --color-mist: #131320;
-  --color-muted: #a29db8;
-  --color-line: #232337;
-  --color-accent: #a855f7;
-  --color-accent-dark: #7c3aed;
-  --color-glow: rgba(168, 85, 247, 0.35);
-}
-
-.light {
-  --color-ink: #0f0f18;
-  --color-canvas: #f7f6fb;
+  --color-ink: #10111a;
+  --color-canvas: #f7f7fb;
   --color-mist: #ffffff;
-  --color-muted: #5b5a6a;
-  --color-line: #e6e2f0;
-  --color-accent: #7c3aed;
-  --color-accent-dark: #5b21b6;
-  --color-glow: rgba(124, 58, 237, 0.25);
+  --color-muted: #5c6070;
+  --color-line: #e6e7ef;
+  --color-accent: #3b82f6;
+  --color-accent-dark: #2563eb;
+  --color-glow: rgba(59, 130, 246, 0.2);
 }
 
 @theme inline {
@@ -60,33 +38,10 @@ body {
   font-family: var(--font-body), system-ui, sans-serif;
   min-height: 100vh;
   background-image: radial-gradient(
-      circle at 15% 10%,
-      rgba(124, 58, 237, 0.22),
-      transparent 45%
-    ),
-    radial-gradient(
-      circle at 80% 10%,
-      rgba(76, 29, 149, 0.35),
-      transparent 42%
-    ),
-    radial-gradient(
-      circle at 30% 80%,
-      rgba(168, 85, 247, 0.18),
-      transparent 50%
-    );
-}
-
-.light body {
-  background-image: radial-gradient(
-      circle at 20% 20%,
-      rgba(124, 58, 237, 0.14),
-      transparent 45%
-    ),
-    radial-gradient(
-      circle at 80% 10%,
-      rgba(99, 102, 241, 0.1),
-      transparent 40%
-    );
+    circle at 20% 10%,
+    rgba(59, 130, 246, 0.12),
+    transparent 45%
+  );
 }
 
 a {
@@ -105,14 +60,14 @@ img {
   justify-content: center;
   padding: 0.75rem 1.4rem;
   border-radius: 999px;
-  background: linear-gradient(120deg, var(--color-accent), #6d28d9);
+  background: linear-gradient(120deg, var(--color-accent), #60a5fa);
   color: #ffffff;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 0.75rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 14px 40px -26px rgba(168, 85, 247, 0.8);
+  box-shadow: 0 14px 40px -26px rgba(59, 130, 246, 0.6);
   position: relative;
   overflow: hidden;
 }
@@ -162,7 +117,7 @@ img {
 
 .btn-ghost:hover {
   border-color: var(--color-accent);
-  background: rgba(168, 85, 247, 0.12);
+  background: rgba(59, 130, 246, 0.12);
   transform: translateY(-1px);
 }
 
@@ -192,7 +147,7 @@ img {
   padding: 0.35rem 0.75rem;
   border-radius: 999px;
   border: 1px solid var(--color-line);
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.8);
   color: var(--color-ink);
   font-size: 0.7rem;
   letter-spacing: 0.12em;
@@ -200,17 +155,9 @@ img {
   font-weight: 600;
 }
 
-.dark .chip {
-  background: rgba(18, 20, 24, 0.7);
-}
-
 .glass {
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(16px);
-}
-
-.dark .glass {
-  background: rgba(16, 18, 22, 0.65);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
 }
 
 .section-divider {
@@ -225,23 +172,22 @@ img {
   border-radius: 24px;
   background: radial-gradient(
       circle at 20% 20%,
-      rgba(168, 85, 247, 0.55),
+      rgba(59, 130, 246, 0.35),
       transparent 45%
     ),
     radial-gradient(
       circle at 80% 80%,
-      rgba(79, 70, 229, 0.45),
+      rgba(37, 99, 235, 0.25),
       transparent 50%
     );
-  filter: blur(0px);
 }
 
 .glow-ring {
   position: absolute;
   inset: -18px;
   border-radius: 28px;
-  border: 1px solid rgba(168, 85, 247, 0.4);
-  box-shadow: 0 0 60px -12px rgba(168, 85, 247, 0.6);
+  border: 1px solid rgba(59, 130, 246, 0.35);
+  box-shadow: 0 0 50px -18px rgba(59, 130, 246, 0.5);
   pointer-events: none;
 }
 

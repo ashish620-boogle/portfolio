@@ -1,17 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
+  { label: "Home", href: "#top" },
   { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
-  { label: "Publications", href: "#publications" },
-  { label: "Skills", href: "#skills" },
-  { label: "Education", href: "#education" },
-  { label: "Achievements", href: "#achievements" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -54,8 +48,7 @@ export default function Navigation() {
               </a>
             </li>
           ))}
-        </ul>
-        <ThemeToggle />
+          </ul>
         </div>
         
       </nav>
